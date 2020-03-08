@@ -1,0 +1,27 @@
+<form action="#" th:action="@{/clienti/update/{id}(id=${client.clientId})}" th:object="${client}" method="post">
+
+    <h1>Editare client</h1>
+
+    <label for="nume">Nume</label>
+    <input type="text" th:field="*{nume}" id="nume" placeholder="Nume">
+    <span th:if="${#fields.hasErrors('nume')}" th:errors="*{nume}"></span>
+
+    <label for="prenume">Nume</label>
+    <input type="text" th:field="*{prenume}" id="prenume" placeholder="Preume">
+    <span th:if="${#fields.hasErrors('prenume')}" th:errors="*{prenume}"></span>
+
+    <label for="adresa">Adresa</label>
+    <input type="text" th:field="*{adresa}" id="adresa" placeholder="Adresa">
+    <span th:if="${#fields.hasErrors('adresa')}" th:errors="*{adresa}"></span>
+
+    <label for="oras">Oras</label>
+    <input type="text" th:field="*{oras}" id="oras" placeholder="Oras">
+    <span th:if="${#fields.hasErrors('oras')}" th:errors="*{oras}"></span>
+
+    <label for="telefon">Telefon</label>
+    <input type="text" th:field="*{telefon}" id="telefon" placeholder="telefon">
+    <span th:if="${#fields.hasErrors('telefon')}" th:errors="*{telefon}"></span>
+
+    <input type="submit" value="Salveaza">
+
+</form>

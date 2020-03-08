@@ -1,6 +1,7 @@
 package com.echipa11.all4food.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,32 +11,34 @@ public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long client_id;
+    private Long clientId;
 
     @NotNull
+    @NotBlank(message = "Campul 'Nume' este obligatoriu")
     private String nume;
 
     @NotNull
+    @NotBlank(message = "Campul 'Prenume' este obligatoriu")
     private String prenume;
 
     @NotNull
+    @NotBlank(message = "Campul 'Adresa' este obligatoriu")
     private String adresa;
 
     @NotNull
+    @NotBlank(message = "Campul 'Oras' este obligatoriu")
     private String oras;
 
     @NotNull
+    @NotBlank(message = "Campul 'Telefon' este obligatoriu")
     private String telefon;
 
-    @OneToMany
-    Set comenzi = new HashSet<Comanda>();
-
-    public Long getClient_id() {
-        return client_id;
+    public Long getClientId() {
+        return clientId;
     }
 
-    public void setClient_id(Long client_id) {
-        this.client_id = client_id;
+    public void setClientId(Long client_id) {
+        this.clientId = client_id;
     }
 
     public String getNume() {
@@ -78,11 +81,4 @@ public class Client {
         this.telefon = telefon;
     }
 
-    public Set getComenzi() {
-        return comenzi;
-    }
-
-    public void setComenzi(Set comenzi) {
-        this.comenzi = comenzi;
-    }
 }

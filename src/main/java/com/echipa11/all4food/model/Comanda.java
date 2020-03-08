@@ -3,6 +3,7 @@ package com.echipa11.all4food.model;
 import com.echipa11.all4food.util.StatusComanda;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
@@ -11,10 +12,10 @@ public class Comanda {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long comanda_id;
+    private Long comandaId;
 
     @OneToOne
-    @JoinColumn(name = "client_id")
+    @JoinColumn(name = "clientId")
     private Client client;
 
     @Basic
@@ -22,17 +23,19 @@ public class Comanda {
     private Date data_plasarii;
 
     @NotNull
+    @NotBlank(message = "Campul 'Status' este obligatoriu")
     private StatusComanda status = StatusComanda.PRIMITA;
 
     @NotNull
+    @NotBlank(message = "Campul 'Total' este obligatoriu")
     private Float total = 0F;
 
     public Long getComanda_id() {
-        return comanda_id;
+        return comandaId;
     }
 
     public void setComanda_id(Long comanda_id) {
-        this.comanda_id = comanda_id;
+        this.comandaId = comanda_id;
     }
 
     public Client getClient() {

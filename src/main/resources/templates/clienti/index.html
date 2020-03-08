@@ -1,0 +1,33 @@
+<div th:switch="${#lists.size(clienti)}">
+    <h2 th:case="0">Nu exista clienti</h2>
+    <div th:case="*">
+        <h2>Clienti</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id Client</th>
+                <th>Nume</th>
+                <th>Prenume</th>
+                <th>Telefon</th>
+                <th>Adresa</th>
+                <th>Oras</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="client : ${clienti}">
+                <td th:text="${client.clientId}"></td>
+                <td th:text="${client.nume}"></td>
+                <td th:text="${client.prenume}"></td>
+                <td th:text="${client.telefon}"></td>
+                <td th:text="${client.adresa}"></td>
+                <td th:text="${client.oras}"></td>
+                <td><a th:href="@{/clienti/edit/{id}(id=${client.clientId})}">Editeaza</a></td>
+                <td><a th:href="@{/clienti/delete/{id}(id=${client.clientId})}">Sterge</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/clienti/add">Adauga client</a></p>
+</div>
