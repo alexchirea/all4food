@@ -1,15 +1,27 @@
 <!DOCTYPE HTML>
-<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{main_layout}">
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{main_layout}">
 <head>
     <title>all4food - Pagina principala</title>
 </head>
 <body>
 <div layout:fragment="content" class="container">
-    <div class="starter-template">
+    <div class="starter-template" sec:authentication="isAuthenticated()">
         <h1>all4food - Bine ati venit!</h1>
         <h2><a th:href="@{/admin/clienti}">Administrare comenzi</a></h2>
         <h2><a th:href="@{/user}">Profil</a></h2>
         <h2><a th:href="@{/about}">Despre noi</a></h2>
+    </div>
+    <div class="row" sec:authorize="isAnonymous()">
+        <div class="jumbotron">
+            <h1 class="display-4">Bine ai venit pe all4food!</h1>
+            <p class="lead">Mancarea ta se afla la doar un click distanta!</p>
+            <hr class="my-4">
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="/comanda" role="button">Comanda acum</a>
+            </p>
+        </div>
     </div>
 </div>
 </body>
