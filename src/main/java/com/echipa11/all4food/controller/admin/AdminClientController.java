@@ -1,4 +1,4 @@
-package com.echipa11.all4food.controller;
+package com.echipa11.all4food.controller.admin;
 
 import com.echipa11.all4food.model.Client;
 import com.echipa11.all4food.service.ClientService;
@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/clienti")
-public class ClientController {
+@RequestMapping("/admin/clienti")
+public class AdminClientController {
 
     private ClientService clientService;
 
     @Autowired
-    public ClientController(ClientService clientService) {
+    public AdminClientController(ClientService clientService) {
         this.clientService = clientService;
     }
 
