@@ -7,7 +7,7 @@
 </head>
 <body>
 <div layout:fragment="content" class="container">
-    <div class="starter-template" sec:authentication="isAuthenticated()">
+    <div class="starter-template" sec:authorize="isAuthenticated()">
         <h1>all4food - Bine ati venit!</h1>
         <h2><a th:href="@{/admin/clienti}">Administrare comenzi</a></h2>
         <h2><a th:href="@{/user}">Profil</a></h2>
