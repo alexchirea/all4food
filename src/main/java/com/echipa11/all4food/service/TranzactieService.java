@@ -25,6 +25,14 @@ public class TranzactieService {
         return tranzactieRepository.findTranzactieByTranzactieIdEquals(tranzactieId);
     }
 
+    public List<Tranzactie> findAll() {
+        return tranzactieRepository.findAll();
+    }
+
+    public Tranzactie findByComanda(Long id) {
+        return tranzactieRepository.findTranzactieByComandaIdEquals(id);
+    }
+
     public Tranzactie saveTranzactie(Tranzactie tranzactie) {
         return tranzactieRepository.save(tranzactie);
     }

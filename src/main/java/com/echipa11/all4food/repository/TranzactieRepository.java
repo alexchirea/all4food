@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TranzactieRepository extends JpaRepository<Tranzactie,Long> {
     Tranzactie findTranzactieByTranzactieIdEquals(Long id);
-
+    Tranzactie findTranzactieByComandaIdEquals(Long id);
 }

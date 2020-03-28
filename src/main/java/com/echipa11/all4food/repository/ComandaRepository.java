@@ -13,6 +13,6 @@ import java.util.List;
 public interface ComandaRepository extends JpaRepository<Comanda, Long> {
     Comanda findComandaByComandaIdEquals(Long id);
     List<Comanda> findComandasByClientEquals(Client client);
-    List<Comanda> findComandasByData_plasariiAfter(Date data);
+    List<Comanda> findComandasByDataPlasariiAfter(Date data);
     List<Comanda> findComandaByStatusEquals(StatusComanda status);
 }

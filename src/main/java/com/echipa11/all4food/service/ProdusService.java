@@ -23,6 +23,10 @@ public class ProdusService {
         return produsRepository.findProdusByProdusIdEquals(produsId);
     }
 
+    public List<Produs> findAll() {
+        return produsRepository.findAll();
+    }
+
     public Produs saveProdus(Produs produs) {
         return produsRepository.save(produs);
     }

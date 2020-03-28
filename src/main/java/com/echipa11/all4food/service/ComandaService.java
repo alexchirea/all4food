@@ -29,7 +29,7 @@ public class ComandaService {
     }
 
     List<Comanda> findByDateAfter (Date data) {
-        return comandaRepository.findComandasByData_plasariiAfter(data);
+        return comandaRepository.findComandasByDataPlasariiAfter(data);
     }
 
     List<Comanda> findByStatus (StatusComanda status) {
