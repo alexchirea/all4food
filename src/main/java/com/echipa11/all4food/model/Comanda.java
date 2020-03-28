@@ -20,7 +20,7 @@ public class Comanda {
 
     @Basic
     @Temporal(TemporalType.TIMESTAMP)
-    private Date data_plasarii;
+    private Date dataPlasarii;
 
     @NotNull
     @NotBlank(message = "Campul 'Status' este obligatoriu")
@@ -46,12 +46,12 @@ public class Comanda {
         this.client = client;
     }
 
-    public Date getData_plasarii() {
-        return data_plasarii;
+    public Date getDataPlasarii() {
+        return dataPlasarii;
     }
 
-    public void setData_plasarii(Date data_plasarii) {
-        this.data_plasarii = data_plasarii;
+    public void setDataPlasarii(Date dataPlasarii) {
+        this.dataPlasarii = dataPlasarii;
     }
 
     public StatusComanda getStatus() {
