@@ -5,6 +5,8 @@ import com.echipa11.all4food.repository.DetaliiComandaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DetaliiComandaService {
 
@@ -17,6 +19,10 @@ public class DetaliiComandaService {
 
     public DetaliiComanda findById(Long id) {
         return detaliiComandaRepository.findDetaliiComandaByDetaliiComandaIdEquals(id);
+    }
+
+    public List<DetaliiComanda> findAll() {
+        return detaliiComandaRepository.findAll();
     }
 
     public DetaliiComanda save(DetaliiComanda detaliiComanda) {
