@@ -41,4 +41,9 @@ public class DefaultController {
         return "/error/403";
     }
 
+    @GetMapping("/contact")
+    public String contact() {
+        return "contact";
+    }
+
 }
