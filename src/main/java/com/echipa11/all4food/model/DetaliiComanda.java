@@ -1,21 +1,26 @@
 package com.echipa11.all4food.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @Entity
-public class DetaliiComanda {
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "detaliiComandaId")
+public class DetaliiComanda implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long detaliiComandaId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "comanda_id", referencedColumnName = "comandaId", nullable = false)
     Comanda comanda;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "produs_id", referencedColumnName = "produsId", nullable = false)
     Produs produs;
 

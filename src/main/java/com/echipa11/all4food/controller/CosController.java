@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -70,6 +71,7 @@ public class CosController {
         if (comanda == null) {
             // se creeaza comanda noua
             Comanda comanda1 = new Comanda(client, StatusComanda.DESCHISA);
+            comanda1.setDataPlasarii(new Date());
             comanda = comandaService.save(comanda1);
         }
 

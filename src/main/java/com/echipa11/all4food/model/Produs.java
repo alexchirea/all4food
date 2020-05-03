@@ -1,17 +1,21 @@
 package com.echipa11.all4food.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Entity
-public class Produs {
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "produsId")
+public class Produs implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,8 +29,7 @@ public class Produs {
 
     private float pret;
 
-    @OneToMany(mappedBy = "produs", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnore
+    @OneToMany(mappedBy = "produs", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<DetaliiComanda> detaliiComenzi;
 
     public List<DetaliiComanda> getDetaliiComenzi() {

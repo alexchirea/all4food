@@ -1,15 +1,18 @@
 package com.echipa11.all4food.model;
 
 import com.echipa11.all4food.util.StatusComanda;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Comanda {
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "comandaId")
+public class Comanda implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,7 +32,7 @@ public class Comanda {
     @NotNull
     private Float total = 0F;
 
-    @OneToMany(mappedBy = "comanda", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "comanda", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<DetaliiComanda> detaliiComenzi;
 
     public Comanda() {

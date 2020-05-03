@@ -24,6 +24,10 @@ public class ComandaService {
         return comandaRepository.findComandaByComandaIdEquals(id);
     }
 
+    public List<Comanda> findAll() {
+        return comandaRepository.findAll();
+    }
+
     public List<Comanda> findByClient (Client client) {
         return comandaRepository.findComandasByClientEquals(client);
     }
@@ -42,6 +46,10 @@ public class ComandaService {
 
     public Comanda save(Comanda c) {
         return comandaRepository.save(c);
+    }
+
+    public void delete(Comanda c) {
+        comandaRepository.delete(c);
     }
 
 }
