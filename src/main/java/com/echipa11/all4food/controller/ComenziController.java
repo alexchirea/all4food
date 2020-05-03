@@ -96,4 +96,16 @@ public class ComenziController {
         return "cos";
     }
 
+    @GetMapping("/plateste/{comandaId}")
+    public String plateste(@PathVariable("comandaId") long comandaId, Model model) throws Exception {
+        Comanda comanda = comandaService.findByComandaId(comandaId);
+        if (comanda == null) {
+            throw new Exception("Nu exista comanda!");
+        }
+        comanda.setStatus(StatusComanda.COMPLETA);
+        comandaService.save(comanda);
+        model.addAttribute("comanda", comanda);
+        return "plata-finalizata";
+    }
+
 }

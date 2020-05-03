@@ -8,30 +8,36 @@
 <body>
 <div layout:fragment="content" class="container">
     <div class="row">
-        <table class="table table-stripped table-hover">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Produs</th>
-                    <th>Pret</th>
-                    <th>Cantitate</th>
-                    <th>Pret Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="produs : ${produse}">
-                    <td th:text="${produs.numeProdus}"></td>
-                    <td th:text="${produs.pret}"></td>
-                    <td th:text="${produs.cantitate}"></td>
-                    <td th:text="${produs.pretTotal}"></td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr class="table-success">
-                    <th colspan="3">Total comanda</th>
-                    <th th:text="${comanda.total}"></th>
-                </tr>
-            </thead>
-        </table>
+        <div class="col-4">
+            <a href="/home" class="btn btn-secondary">Inapoi la pagina principala</a>
+        </div>
+        <div class="col-8">
+            <table class="table table-stripped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Produs</th>
+                        <th>Pret</th>
+                        <th>Cantitate</th>
+                        <th>Pret Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="produs : ${produse}">
+                        <td th:text="${produs.numeProdus}"></td>
+                        <td th:text="${produs.pret}"></td>
+                        <td th:text="${produs.cantitate}"></td>
+                        <td th:text="${produs.pretTotal}"></td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr class="table-success">
+                        <th colspan="3">Total comanda</th>
+                        <th th:text="${comanda.total}"></th>
+                    </tr>
+                </thead>
+            </table>
+            <a class="btn btn-lg btn-success" th:href="@{/plateste/{comandaId}(comandaId=${comanda.comandaId})}">Plateste</a>
+        </div>
     </div>
 </div>
 </body>

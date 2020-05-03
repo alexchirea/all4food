@@ -22,6 +22,12 @@ public class DefaultController {
         return "/home";
     }
 
+    @GetMapping("/home")
+    public String home(Model model) {
+        model.addAttribute("produse", produsService.findAll());
+        return "/home";
+    }
+
     @GetMapping("/admin")
     public String admin() {
         return "/admin";

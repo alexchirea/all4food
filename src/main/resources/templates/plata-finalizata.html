@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{main_layout}">
+<head>
+    <title>all4food - Pagina principala</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+    <div class="row">
+        <div class="col-4">
+            <a href="/home" class="btn btn-secondary">Inapoi la pagina principala</a>
+        </div>
+        <div class="col-8">
+            <h3>Plata a fost inregistrata, iar comanda ta este pe drum!</h3>
+            <h4>Rezumat</h4>
+            <table class="table table-stripped table-hover">
+                <tr><th>ID Comanda</th><td th:text="${comanda.comandaId}"></td></tr>
+                <tr><th>Total platit</th><td th:text="${comanda.total}"></td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
