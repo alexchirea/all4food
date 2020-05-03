@@ -1,5 +1,8 @@
 package com.echipa11.all4food.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -23,6 +26,7 @@ public class Produs {
     private float pret;
 
     @OneToMany(mappedBy = "produs", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<DetaliiComanda> detaliiComenzi;
 
     public List<DetaliiComanda> getDetaliiComenzi() {
