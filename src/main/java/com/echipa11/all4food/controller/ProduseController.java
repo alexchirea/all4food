@@ -56,7 +56,7 @@ public class ProduseController {
         if (produs == null) {
             throw new EntityNotFoundException();
         }
-        produsService.delete((produs));
+        produsService.delete(produs);
     }
 
 }
