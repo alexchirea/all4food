@@ -21,7 +21,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-public class ComenziController {
+public class CosController {
 
     private ProdusService produsService;
     private ClientService clientService;
@@ -30,8 +30,8 @@ public class ComenziController {
     private String clientNume = "USER";
 
     @Autowired
-    public ComenziController(ProdusService produsService, ClientService clientService, ComandaService comandaService,
-                             DetaliiComandaService detaliiComandaService) {
+    public CosController(ProdusService produsService, ClientService clientService, ComandaService comandaService,
+                         DetaliiComandaService detaliiComandaService) {
         this.produsService = produsService;
         this.clientService = clientService;
         this.comandaService = comandaService;
