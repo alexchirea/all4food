@@ -7,20 +7,16 @@
 </head>
 <body>
 <div layout:fragment="content" class="container">
-    <div class="starter-template" sec:authorize="isAuthenticated()">
-        <h1>all4food - Bine ati venit!</h1>
-        <h2><a th:href="@{/admin/clienti}">Administrare comenzi</a></h2>
-        <h2><a th:href="@{/user}">Profil</a></h2>
-        <h2><a th:href="@{/about}">Despre noi</a></h2>
-    </div>
-    <div class="row" sec:authorize="isAnonymous()">
-        <div class="jumbotron">
-            <h1 class="display-4">Bine ai venit pe all4food!</h1>
-            <p class="lead">Mancarea ta se afla la doar un click distanta!</p>
-            <hr class="my-4">
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="/comanda" role="button">Comanda acum</a>
-            </p>
+    <div class="row">
+        <div class="col-4 mt-3" th:each="produs : ${produse}">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${produs.denumire}"></h5>
+                    <p class="card-text" th:text="${produs.descriere}"></p>
+                    <p class="card-text"><b>Pret: <span th:text="${produs.pret}"></span> lei</b></p>
+                    <a th:href="@{/cos/add/{id}(id=${produs.produsId})}" class="btn btn-success">Cumpara</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

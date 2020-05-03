@@ -33,6 +33,17 @@ public class Client {
     @NotBlank(message = "Campul 'Telefon' este obligatoriu")
     private String telefon;
 
+    public Client() {
+    }
+
+    public Client(String nume, String prenume, String adresa, String oras, String telefon) {
+        this.nume = nume;
+        this.prenume = prenume;
+        this.adresa = adresa;
+        this.oras = oras;
+        this.telefon = telefon;
+    }
+
     public Long getClientId() {
         return clientId;
     }

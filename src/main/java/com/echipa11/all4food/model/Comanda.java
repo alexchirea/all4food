@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Comanda {
@@ -23,12 +24,37 @@ public class Comanda {
     private Date dataPlasarii;
 
     @NotNull
-    @NotBlank(message = "Campul 'Status' este obligatoriu")
-    private StatusComanda status = StatusComanda.PRIMITA;
+    private StatusComanda status = StatusComanda.DESCHISA;
 
     @NotNull
-    @NotBlank(message = "Campul 'Total' este obligatoriu")
     private Float total = 0F;
+
+    @OneToMany(mappedBy = "comanda", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<DetaliiComanda> detaliiComenzi;
+
+    public Comanda() {
+    }
+
+    public Comanda(Client client, StatusComanda statusComanda) {
+        this.client = client;
+        this.status = statusComanda;
+    }
+
+    public Long getComandaId() {
+        return comandaId;
+    }
+
+    public void setComandaId(Long comandaId) {
+        this.comandaId = comandaId;
+    }
+
+    public List<DetaliiComanda> getDetaliiComenzi() {
+        return detaliiComenzi;
+    }
+
+    public void setDetaliiComenzi(List<DetaliiComanda> detaliiComenzi) {
+        this.detaliiComenzi = detaliiComenzi;
+    }
 
     public Long getComanda_id() {
         return comandaId;

@@ -11,27 +11,27 @@ public class DetaliiComanda {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long detaliiComandaId;
 
-    @ManyToOne
-    @MapsId("comanda_id")
-    @JoinColumn(name = "comandaId")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "comanda_id", referencedColumnName = "comandaId", nullable = false)
     Comanda comanda;
 
-    @ManyToOne
-    @MapsId("produs_id")
-    @JoinColumn(name = "produsId")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "produs_id", referencedColumnName = "produsId", nullable = false)
     Produs produs;
 
+    String numeProdus;
+
     @NotNull
-    @NotBlank(message = "Campul 'Pret' este obligatoriu")
     float pret;
 
     @NotNull
-    @NotBlank(message = "Campul 'Cantitate' este obligatoriu")
     int cantitate;
 
     @NotNull
-    @NotBlank(message = "Campul 'Pret Total' este obligatoriu")
     float pretTotal;
+
+    public DetaliiComanda() {
+    }
 
     public Long getDetaliiComandaId() {
         return detaliiComandaId;
@@ -81,4 +81,11 @@ public class DetaliiComanda {
         this.pretTotal = pretTotal;
     }
 
+    public String getNumeProdus() {
+        return numeProdus;
+    }
+
+    public void setNumeProdus(String numeProdus) {
+        this.numeProdus = numeProdus;
+    }
 }

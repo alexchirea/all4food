@@ -20,20 +20,28 @@ public class ComandaService {
         this.comandaRepository = comandaRepository;
     }
 
-    Comanda findByComandaId (Long id) {
+    public Comanda findByComandaId (Long id) {
         return comandaRepository.findComandaByComandaIdEquals(id);
     }
 
-    List<Comanda> findByClient (Client client) {
+    public List<Comanda> findByClient (Client client) {
         return comandaRepository.findComandasByClientEquals(client);
     }
 
-    List<Comanda> findByDateAfter (Date data) {
+    public List<Comanda> findByDateAfter (Date data) {
         return comandaRepository.findComandasByDataPlasariiAfter(data);
     }
 
-    List<Comanda> findByStatus (StatusComanda status) {
+    public List<Comanda> findByStatus (StatusComanda status) {
         return comandaRepository.findComandaByStatusEquals(status);
+    }
+
+    public Comanda findByStatusAndClient(StatusComanda statusComanda, Client client) {
+        return comandaRepository.findComandaByStatusEqualsAndClientEquals(statusComanda, client);
+    }
+
+    public Comanda save(Comanda c) {
+        return comandaRepository.save(c);
     }
 
 }

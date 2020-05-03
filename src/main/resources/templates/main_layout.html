@@ -13,22 +13,7 @@
 
 <div class="container mt-5">
     <div class="row">
-        <div class="col-4" sec:authorize="isAuthenticated()">
-            <div class="list-group">
-                <a href="/clienti" class="list-group-item list-group-item-action">Clienti</a>
-                <a href="/comenzi" class="list-group-item list-group-item-action">Comenzi</a>
-                <a href="/produse" class="list-group-item list-group-item-action">Produse</a>
-                <a href="/tranzactii" class="list-group-item list-group-item-action">Tranzactii</a>
-            </div>
-        </div>
-        <div class="col-4" sec:authorize="isAnonymous()">
-            <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action active">all4food</a>
-                <a href="/meniu" class="list-group-item list-group-item-action">Meniu</a>
-                <a href="/cos" class="list-group-item list-group-item-action">Cos</a>
-            </div>
-        </div>
-        <div class="col-8">
+        <div class="col-12">
             <div layout:fragment="content"></div>
         </div>
     </div>

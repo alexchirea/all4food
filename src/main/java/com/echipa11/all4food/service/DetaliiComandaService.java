@@ -1,6 +1,8 @@
 package com.echipa11.all4food.service;
 
+import com.echipa11.all4food.model.Comanda;
 import com.echipa11.all4food.model.DetaliiComanda;
+import com.echipa11.all4food.model.Produs;
 import com.echipa11.all4food.repository.DetaliiComandaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +33,14 @@ public class DetaliiComandaService {
 
     public void delete(DetaliiComanda detaliiComanda) {
         detaliiComandaRepository.delete(detaliiComanda);
+    }
+
+    public DetaliiComanda getByComandaAndProdus(Comanda c, Produs p) {
+        return detaliiComandaRepository.findDetaliiComandaByComandaEqualsAndProdusEquals(c, p);
+    }
+
+    public List<DetaliiComanda> getByComanda(Comanda c) {
+        return detaliiComandaRepository.findDetaliiComandasByComandaEquals(c);
     }
 
 }

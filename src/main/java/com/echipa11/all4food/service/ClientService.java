@@ -21,8 +21,8 @@ public class ClientService {
         return clientRepository.findClientsByClientIdEquals(clientId);
     }
 
-    public List<Client> findByNume(String nume){
-        return clientRepository.findClientsByNumeEquals(nume);
+    public Client findByNume(String nume){
+        return clientRepository.findClientByNumeEquals(nume);
     }
 
     public Client saveClient(Client client) {

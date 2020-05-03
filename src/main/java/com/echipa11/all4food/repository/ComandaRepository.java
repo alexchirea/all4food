@@ -15,4 +15,5 @@ public interface ComandaRepository extends JpaRepository<Comanda, Long> {
     List<Comanda> findComandasByClientEquals(Client client);
     List<Comanda> findComandasByDataPlasariiAfter(Date data);
     List<Comanda> findComandaByStatusEquals(StatusComanda status);
+    Comanda findComandaByStatusEqualsAndClientEquals(StatusComanda statusComanda, Client client);
 }

@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -17,13 +18,28 @@ public class Produs {
     @NotBlank(message = "Campul 'denumire' este obligatoriu")
     private String denumire;
 
-    @NotNull
-    @NotBlank(message = "Campul 'descriere' este obligatoriu")
     private String descriere;
 
-    @NotNull
-    @NotBlank(message = "Campul 'pret' este obligatoriu")
     private float pret;
+
+    @OneToMany(mappedBy = "produs", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<DetaliiComanda> detaliiComenzi;
+
+    public List<DetaliiComanda> getDetaliiComenzi() {
+        return detaliiComenzi;
+    }
+
+    public void setDetaliiComenzi(List<DetaliiComanda> detaliiComenzi) {
+        this.detaliiComenzi = detaliiComenzi;
+    }
+
+    public Produs() {
+    }
+
+    public Produs(String d, float p) {
+        denumire = d;
+        pret = p;
+    }
 
     public Long getProdusId() {
         return produsId;
