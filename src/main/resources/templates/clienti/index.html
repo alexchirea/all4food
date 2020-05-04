@@ -30,13 +30,13 @@
                     <td th:text="${client.telefon}"></td>
                     <td th:text="${client.adresa}"></td>
                     <td th:text="${client.oras}"></td>
-                    <td><a class="btn btn-success" th:href="@{/clienti/edit/{id}(id=${client.clientId})}">Editeaza</a></td>
-                    <td><a class="btn btn-danger" th:href="@{/clienti/delete/{id}(id=${client.clientId})}">Sterge</a></td>
+                    <td><a class="btn btn-success" th:href="@{/admin/clienti/edit/{id}(id=${client.clientId})}">Editeaza</a></td>
+                    <td><a class="btn btn-danger" th:href="@{/admin/clienti/delete/{id}(id=${client.clientId})}">Sterge</a></td>
                 </tr>
                 </tbody>
             </table>
         </div>
-        <p><a class="btn btn-primary" href="/clienti/add">Adauga client</a></p>
+        <p><a class="btn btn-primary" href="clienti/add">Adauga client</a></p>
     </div>
 </div>
 </body>

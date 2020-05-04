@@ -39,7 +39,8 @@ public class AdminClientController {
         }
         clientService.saveClient(client);
         model.addAttribute("clienti", clientService.findAll());
-        return "clienti/index";
+        return "redirect:/admin/clienti";
+        //return "clienti/index";
     }
 
     @GetMapping("/edit/{id}")
@@ -58,7 +59,8 @@ public class AdminClientController {
         client.setClientId(id);
         clientService.saveClient(client);
         model.addAttribute("clienti", clientService.findAll());
-        return "clienti/index";
+        return "redirect:/admin/clienti";
+        //return "clienti/index";
     }
 
     @GetMapping("/delete/{id}")
@@ -66,7 +68,8 @@ public class AdminClientController {
         Client client = clientService.findByClientId(id);
         clientService.delete(client);
         model.addAttribute("clienti", clientService.findAll());
-        return "clienti/index";
+        return "redirect:/admin/clienti";
+        //return "clienti/index";
     }
 
 }

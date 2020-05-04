@@ -26,6 +26,8 @@ public class DataLoader implements ApplicationRunner {
 
     private void LoadClients() {
         clientRepository.save(new Client("USER", "DEMO", "Str. Universitatii nr. 11", "Bucuresti", "0721345678"));
+        clientRepository.save(new Client("Popescu", "Andrei", "Bd. Unirii nr. 1", "Bucuresti", "0712345678"));
+        clientRepository.save(new Client("Ionescu", "Alexandra", "Bd. Unirii nr. 2", "Bucuresti", "0772345678"));
     }
 
     private void LoadProducts() {
