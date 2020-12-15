@@ -31,11 +31,11 @@ public class DataLoader implements ApplicationRunner {
     }
 
     private void LoadProducts() {
-        produsRepository.save(new Produs("Meniu Burger XL", 24.50f));
-        produsRepository.save(new Produs("Pizza Quattro Formaggi", 21.0f));
-        produsRepository.save(new Produs("Meniu Crispy XL", 18.50f));
-        produsRepository.save(new Produs("Desert", 14.50f));
-        produsRepository.save(new Produs("Meniu Copii", 20.50f));
+        produsRepository.save(new Produs("Pizza 1", 24.50f));
+        produsRepository.save(new Produs("Pizza 2", 21.0f));
+        produsRepository.save(new Produs("Burger 1", 18.50f));
+        produsRepository.save(new Produs("Burger 2", 14.50f));
+        produsRepository.save(new Produs("Menu 1", 20.50f));
     }
 
 }
